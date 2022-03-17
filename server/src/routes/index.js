@@ -1,13 +1,11 @@
 const { Router } = require('express');
 const routerIndex = Router();
 const verifyJWT = require('../middleware/jwt.middleware');
-const { verifyLogin } = require('../controllers/index.controller');
+const userControler = require('../controllers/index.controller');
 
 
-routerIndex.post('/', verifyLogin);
+routerIndex.post('/', userControler.isValidPassword);
 
-routerIndex.get('/teste', verifyJWT, (req,res) => {
-    res.send("Boa");
-})
+routerIndex.get('/createAdmin', userControler.createAdmin);
 
 module.exports = routerIndex;

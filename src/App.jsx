@@ -1,7 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Main from './components/Main';
 
 const App = () => {
-  return ( <h1>Tudo funfando!</h1> );
+  return ( 
+    <Router>
+      <Route path="/" exact component={Login} />
+      <Route path="/main" exact component={Main} />
+
+    </Router>
+   );
 }
  
 export default App;
