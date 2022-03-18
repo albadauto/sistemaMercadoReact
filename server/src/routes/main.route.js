@@ -5,7 +5,7 @@ const verifyJWT = require('../middleware/jwt.middleware');
 
 
 mainRouter.get('/', mainController.index)
-mainRouter.get('/insertProduct', mainController.insertProduct)
+mainRouter.post('/insertProduct', mainController.insertProduct)
 
 
 module.exports = mainRouter;

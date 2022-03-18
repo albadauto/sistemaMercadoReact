@@ -8,7 +8,7 @@ exports.index = async (req,res,next) => {
         const result = await productsModel.find({});
         if (result.length > 0){
             res.json({
-                search: result
+                result
             })
         }else{
             res.json({
@@ -23,13 +23,14 @@ exports.index = async (req,res,next) => {
 exports.insertProduct = async (req,res,next) => {
     try{
         const insert = {
-            nome:'produto',
-            fornecedor: 'sei la',
-            tipo:'salguadin'
+            nome:req.body.nome,
+            fornecedor: req.body.fornecedor,
+            tipo:req.body.tipo
         }
         await productsModel.create(insert);
         res.json({
-            inserted: insert
+            inserted: insert,
+            error: false
         })
     }catch(err){
         console.log(err)
